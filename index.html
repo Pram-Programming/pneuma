@@ -6,6 +6,7 @@
         <button id="add">+</button>
         <button id="sub">-</button>
         <button id="mul">*</button>
+        <button id="div">/</button>
         <input id="b">
         =
         <label id="res">0</label>
@@ -31,6 +32,15 @@
                 let b = parseInt(document.querySelector('#b').value)
                 
                 if (isNaN(a) || isNaN(b)) return alert('숫자를 입력해주세요.')
+                
+                document.querySelector('#res').innerText = a * b
+            })
+            document.querySelector('#div').addEventListener('click', () => {
+                let a = parseInt(document.querySelector('#a').value)
+                let b = parseInt(document.querySelector('#b').value)
+                
+                if (isNaN(a) || isNaN(b)) return alert('숫자를 입력해주세요.')
+                if (b === 0) return alert('0으로 나눌 수 없습니다.')
                 
                 document.querySelector('#res').innerText = a * b
             })
