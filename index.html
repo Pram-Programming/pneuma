@@ -14,13 +14,11 @@
                 ctx.closePath()
             }
             
-            for (let i = 0; i < 10; i++) {
-                let x = Math.random() * 500
-                let y = Math.random() * 500
-                let r = Math.random() * 30
-                
-                ctx.fillCircle(x, y, r)
-            }
+            let x = 100
+            setInterval(() => {
+                ctx.fillCircle(x, 100, 20)
+                x += 1
+            }, 20)
         </script>
     </body>
 </html>
