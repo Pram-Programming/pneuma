@@ -14,12 +14,17 @@
                 ctx.closePath()
             }
             
-            let x = 100
-            setInterval(() => {
-                ctx.clearRect(0, 0, canvas.width, canvas.height)
-                ctx.fillCircle(x, 100, 20)
-                x += 1
-            }, 20)
+            function getMousePosition(canvas, event) { 
+                let rect = canvas.getBoundingClientRect(); 
+                let x = event.clientX - rect.left; 
+                let y = event.clientY - rect.top;
+                return {x, y}
+            } 
+            
+            canvas.addEventListener('click', evt => {
+                let pos = getMousePosition(canvas, evt)
+                ctx.fillCircle(pos.x, pos.y, 20)
+            })
         </script>
     </body>
 </html>
