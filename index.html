@@ -21,9 +21,21 @@
                 return {x, y}
             } 
             
-            canvas.addEventListener('click', evt => {
-                let pos = getMousePosition(canvas, evt)
-                ctx.fillCircle(pos.x, pos.y, 20)
+            let isMouseDown = false
+            
+            canvas.addEventListener('mousedown', evt => {
+                isMouseDown = true
+            })
+            
+            canvas.addEventListener('mousemove', evt => {
+                if (isMouseDown === true) {
+                    let pos = getMousePosition(canvas, evt)
+                    ctx.fillCircle(pos.x, pos.y, 20)
+                }
+            })
+            
+            canvas.addEventListener('mouseup', evt => {
+                isMouseDown = false
             })
         </script>
     </body>
