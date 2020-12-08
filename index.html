@@ -22,6 +22,7 @@
             }, 10)
             
             canvas.addEventListener('keydown', evt => {
+                console.log('debug')
                 if (evt.keyCode === 38) y -= 10 // w
                 if (evt.keyCode === 37) x -= 10 // a
                 if (evt.keyCode === 40) y += 10 // s
