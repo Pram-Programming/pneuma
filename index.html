@@ -21,7 +21,7 @@
                 ctx.fillCircle(x, y, 20)
             }, 10)
             
-            canvas.addEventListener('keydown', evt => {
+            canvas.addEventListener('keypress', evt => {
                 console.log('debug')
                 if (evt.keyCode === 38) y -= 10 // w
                 if (evt.keyCode === 37) x -= 10 // a
