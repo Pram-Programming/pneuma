@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <html>
     <body>
-        <h1>Hello!</h1>
-        <canvas id="canvas" width=500 height=500></canvas>
+        <canvas id="canvas" width=1000 height=500></canvas>
         <script>
             const canvas = document.querySelector('#canvas')
             const ctx = canvas.getContext('2d')
@@ -14,13 +13,29 @@
                 ctx.closePath()
             }
             
-            let x = 250, y = 250, key_status = []
+            function isCollision(x1, y1, r1, x2, y2, r2) {
+                let dist = sqrt(pow(abs(x1 - x2), 2) + pow(abs(y1 - y2), 2))
+                return dist <= r1 + r2
+            }
+            
+            let x = 500, y = 250, key_status = []
+            let obstacle = [
+                { x: 100, y: 100, r: 10 },
+                { x: 700, y: 400, r: 30 }
+            ]
             
             setInterval(() => {
                 if (key_status[87] === true) y -= 2 // w
                 if (key_status[65] === true) x -= 2 // a
                 if (key_status[83] === true) y += 2 // s
                 if (key_status[68] === true) x += 2 // d
+                
+                for (let i = 0; i < obstacle.length; i++) {
+                    if (isCollision(x, y, r, obstacle[i].x, obstacle[i].y, obstacle[i].r)) {
+                        x = 500
+                        y = 250
+                    }
+                }
                 
                 ctx.clearRect(0, 0, canvas.width, canvas.height)
                 ctx.fillCircle(x, y, 20)
