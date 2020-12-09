@@ -14,19 +14,24 @@
                 ctx.closePath()
             }
             
-            let x = 250, y = 250
+            let x = 250, y = 250, key_status = []
             
             setInterval(() => {
+                if (key_status[87] === true) y -= 2 // w
+                if (key_status[65] === true) x -= 2 // a
+                if (key_status[83] === true) y += 2 // s
+                if (key_status[68] === true) x += 2 // d
+                
                 ctx.clearRect(0, 0, canvas.width, canvas.height)
                 ctx.fillCircle(x, y, 20)
             }, 10)
             
-            canvas.addEventListener('keypress', evt => {
-                console.log('debug')
-                if (evt.keyCode === 38) y -= 10 // w
-                if (evt.keyCode === 37) x -= 10 // a
-                if (evt.keyCode === 40) y += 10 // s
-                if (evt.keyCode === 39) x += 10 // d
+            document.addEventListener('keydown', evt => {
+                key_status[evt.keyCode] = true
+            })
+            
+            document.addEventListener('keyup', evt => {
+                key_status[evt.keyCode] = false
             })
         </script>
     </body>
