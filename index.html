@@ -18,11 +18,15 @@
                 return dist <= r1 + r2
             }
             
-            let x = 500, y = 250, key_status = []
-            let obstacle = [
-                { x: 100, y: 100, r: 10 },
-                { x: 700, y: 400, r: 30 }
-            ]
+            let x = 100, y = 250, key_status = [], obstacle = []
+            
+            for (let i = 0; i < 10; i++) {
+                obstacle.push({ x: 200 + 70 * i, y: 0, r: 10 })
+                setInterval(() => {
+                    obstacle[i].y += i * 3
+                    obstacle[i].y %= 500
+                }, 10)
+            }
             
             setInterval(() => {
                 ctx.clearRect(0, 0, canvas.width, canvas.height)
@@ -37,7 +41,7 @@
                     ctx.fillCircle(obstacle[i].x, obstacle[i].y, obstacle[i].r)
                     
                     if (isCollision(x, y, 20, obstacle[i].x, obstacle[i].y, obstacle[i].r)) {
-                        x = 500
+                        x = 100
                         y = 250
                     }
                 }
