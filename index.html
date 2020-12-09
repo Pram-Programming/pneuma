@@ -23,7 +23,7 @@
             for (let i = 0; i < 10; i++) {
                 obstacle.push({ x: 200 + 70 * i, y: 0, r: 10 })
                 setInterval(() => {
-                    obstacle[i].y += i * mul + bias
+                    obstacle[i].y += (((i + 1) * 3) % 10) + 1
                     obstacle[i].y %= 500
                 }, 10)
             }
