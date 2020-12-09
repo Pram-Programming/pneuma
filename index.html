@@ -36,7 +36,7 @@
                     ctx.fillStyle = '#ff0000'
                     ctx.fillCircle(obstacle[i].x, obstacle[i].y, obstacle[i].r)
                     
-                    if (isCollision(x, y, r, obstacle[i].x, obstacle[i].y, obstacle[i].r)) {
+                    if (isCollision(x, y, 20, obstacle[i].x, obstacle[i].y, obstacle[i].r)) {
                         x = 500
                         y = 250
                     }
