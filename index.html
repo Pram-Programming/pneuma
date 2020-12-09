@@ -25,19 +25,24 @@
             ]
             
             setInterval(() => {
+                ctx.clearRect(0, 0, canvas.width, canvas.height)
+                
                 if (key_status[87] === true) y -= 2 // w
                 if (key_status[65] === true) x -= 2 // a
                 if (key_status[83] === true) y += 2 // s
                 if (key_status[68] === true) x += 2 // d
                 
                 for (let i = 0; i < obstacle.length; i++) {
+                    ctx.fillStyle = '#ff0000'
+                    ctx.fillCircle(obstacle[i].x, obstacle[i].y, obstacle[i].r)
+                    
                     if (isCollision(x, y, r, obstacle[i].x, obstacle[i].y, obstacle[i].r)) {
                         x = 500
                         y = 250
                     }
                 }
                 
-                ctx.clearRect(0, 0, canvas.width, canvas.height)
+                ctx.fillStyle = '#000000'
                 ctx.fillCircle(x, y, 20)
             }, 10)
             
