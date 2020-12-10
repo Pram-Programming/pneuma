@@ -21,10 +21,7 @@
             let x = 100, y = 250, tick = 0, key_status = [], obstacle = []
             
             for (let i = 0; i < 10; i++) {
-                obstacle.push({ x: 200 + 70 * i, y: 0, r: 10 })
-                setInterval(() => {
-                    obstacle[i].y = Math.cos(tick / 200) * 250 + 250
-                }, 10)
+                obstacle.push({ x: 200 + 70 * i, y: 0, r: 10 })   
             }
             
             setInterval(() => {
@@ -36,6 +33,8 @@
                 if (key_status[68] === true) x += 2 // d
                 
                 for (let i = 0; i < obstacle.length; i++) {
+                    obstacle[i].y = Math.cos(tick / (100 + i * 5) * 250 + 250
+                                                     
                     ctx.fillStyle = '#ff0000'
                     ctx.fillCircle(obstacle[i].x, obstacle[i].y, obstacle[i].r)
                     
