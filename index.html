@@ -28,8 +28,8 @@
                 if (key_status[83] === true) y += 2 // s
                 if (key_status[68] === true) x += 2 // d
                 
-                obs.x = Math.sin(tick / 50) * 10 + 500
-                obs.y = Math.cos(tick / 50) * 10 + 250
+                obs.x = Math.sin(tick / 50) * 100 + 500
+                obs.y = Math.cos(tick / 50) * 100 + 250
                 
                 ctx.fillStyle = '#ff0000'
                 ctx.fillCircle(obs.x, obs.y, obs.r)
